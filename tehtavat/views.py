@@ -1,3 +1,28 @@
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
-# Create your views here.
+from tehtavat.models import Tehtava
+
+
+def etusivu(request):
+    tiedot = {
+        'tehtavat': Tehtava.objects.all(),
+    }
+    response = render(request, 'etusivu.html', context=tiedot,)
+    return response
+
+
+def tehtavasivu(request, id):
+    try:
+        tehtava = Tehtava.objects.get(id=id)
+    except Tehtava.DoesNotExist:
+        return HttpResponseNotFound(f'Tehtävää {id} ei löydy.')
+    return render(request, 'tehtava.html', context={'tehtava': tehtava})
+
+def tietoa(request):
+    response = render(request, 'tietoa.html',)
+    return response
+
+
+def yhteystiedot(request):
+    return HttpResponse('<html><body><h1>Yhteystiedot</h1></body</html>')
