@@ -4,15 +4,18 @@
 {% block content %}
 <p>
     {% if tehtava.tehty %}
+    <div class="alert alert-info" role="alert">
         <b>TEHTY!</b>
+    </div>
     {% else %}
         <form action='' method='POST'>
             {% csrf_token %}
             <input type='submit'
-            value='Merkitse tehdyksi'/>
+                class= 'btn btn-primary'
+                value='Merkitse tehdyksi'/>
             <input type='hidden'
-            name='toiminto'
-            value='merkitse_tehdyksi'/>
+                name='toiminto'
+                value='merkitse_tehdyksi'/>
         </form>
     {% endif %}
 </p>
@@ -24,9 +27,6 @@
     {% else %}
         &ndash;
     {% endif %}
-</p>
-<p>
-    
 </p>
 <p>
     <a href="{% url 'etusivu' %}">Etusivu</a>
