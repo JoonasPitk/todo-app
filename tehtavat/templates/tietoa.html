@@ -1,16 +1,12 @@
-<html>
-    <head>
-        <title>TODO-ohjelma - Tietoa ohjelmasta</title>
-    </head>
-    <body>
-        <h1>Tietoa TODO-ohjelmasta</h1>
+{% extends "base.html" %}
+{% block title %}Tietoa ohjelmasta{% endblock %}
+{% block heading %}Tietoa TODO-ohjelmasta{% endblock %}
+{% block content %}
+<p>
+    Tehtävien hallintaan erikoistunut ohjelma.
+</p>
 
-        <p>
-            Tehtävien hallintaan erikoistunut ohjelma.
-        </p>
-
-        <p>
-            <a href="{% url 'etusivu' %}">Etusivu</a>
-        </p>
-    </body>
-</html>
+<p>
+    <a href="{% url 'etusivu' %}">Etusivu</a>
+</p>
+{% endblock %}
