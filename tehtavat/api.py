@@ -8,7 +8,7 @@ from .models import Tehtava
 class TehtavaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tehtava
-        fields = ['otsikko', 'tehty',]
+        fields = ['id', 'otsikko', 'tehty',]
 
 # ViewSets define the view behavior.
 class TehtavaViewSet(viewsets.ModelViewSet):
